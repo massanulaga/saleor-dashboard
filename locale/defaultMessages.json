@@ -3163,10 +3163,6 @@
     "context": "Save composition segment for variant-selection checkboxes",
     "string": "variant selection"
   },
-  "945a4a": {
-    "context": "column header",
-    "string": "Customer e-mail"
-  },
   "94nQ+l": {
     "context": "Expanded help for shipping countries setup",
     "string": "Saleor treats an empty country list as worldwide. Assign countries to restrict free shipping, or skip this step if worldwide is intentional."
@@ -7133,6 +7129,10 @@
   "MZDkkX": {
     "context": "button label",
     "string": "All"
+  },
+  "MZZbQH": {
+    "context": "column header",
+    "string": "Email"
   },
   "MZjG5u": {
     "context": "setup task description when no variants",
