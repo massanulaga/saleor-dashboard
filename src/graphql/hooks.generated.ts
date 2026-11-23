@@ -15837,6 +15837,10 @@ export const OrderGrantRefundAddDocument = gql`
     }
     grantedRefund {
       id
+      amount {
+        amount
+        currency
+      }
     }
   }
 }

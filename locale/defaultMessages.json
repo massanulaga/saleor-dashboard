@@ -4861,6 +4861,10 @@
     "context": "mark as paid transaction option description",
     "string": "Matches modern payment apps. Pick this unless you still run legacy payment plugins."
   },
+  "Eyk33K": {
+    "context": "notification, form submitted with refunded amount",
+    "string": "Refund of {amount} for order #{orderNumber} was granted"
+  },
   "F/JMp6": {
     "context": "authorize status full",
     "string": "Full"
