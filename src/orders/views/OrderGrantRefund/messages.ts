@@ -16,4 +16,9 @@ export const orderGrantRefundMessages = defineMessages({
     description: "notification, form submitted",
     id: "qbFKVI",
   },
+  formSubmittedWithAmount: {
+    defaultMessage: "Refund of {amount} for order #{orderNumber} was granted",
+    description: "notification, form submitted with refunded amount",
+    id: "Eyk33K",
+  },
 });

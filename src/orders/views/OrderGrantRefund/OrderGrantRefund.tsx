@@ -9,6 +9,7 @@ import { extractMutationErrors } from "@dashboard/misc";
 import { type OrderGrantRefundFormData } from "@dashboard/orders/components/OrderGrantRefundPage/form";
 import OrderGrantRefundPage from "@dashboard/orders/components/OrderGrantRefundPage/OrderGrantRefundPage";
 import { orderUrl } from "@dashboard/orders/urls";
+import { getGrantedRefundSuccessMessage } from "@dashboard/orders/utils/getGrantedRefundSuccessMessage";
 import { useIntl } from "react-intl";
 
 import { squashLines } from "../OrderReturn/useRefundWithinReturn";
@@ -34,8 +35,9 @@ const OrderGrantRefund = ({ orderId }: OrderGrantRefundProps) => {
         navigate(orderUrl(orderId), { replace: true });
         notify({
           status: "success",
-          text: intl.formatMessage(orderGrantRefundMessages.formSubmitted, {
+          text: getGrantedRefundSuccessMessage(intl, {
             orderNumber: data?.order?.number,
+            grantedRefundAmount: submitData.orderGrantRefundCreate?.grantedRefund?.amount,
           }),
         });
       }

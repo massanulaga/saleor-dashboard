@@ -527,6 +527,10 @@ export const orderGrantRefundAddMutation = gql`
       }
       grantedRefund {
         id
+        amount {
+          amount
+          currency
+        }
       }
     }
   }

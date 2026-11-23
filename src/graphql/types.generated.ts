@@ -13684,7 +13684,7 @@ export type OrderGrantRefundAddMutationVariables = Exact<{
 }>;
 
 
-export type OrderGrantRefundAddMutation = { __typename: 'Mutation', orderGrantRefundCreate: { __typename: 'OrderGrantRefundCreate', errors: Array<{ __typename: 'OrderGrantRefundCreateError', field: string | null, message: string | null, code: OrderGrantRefundCreateErrorCode, lines: Array<{ __typename: 'OrderGrantRefundCreateLineError', field: string | null, message: string | null, code: OrderGrantRefundCreateLineErrorCode, lineId: string }> | null }>, grantedRefund: { __typename: 'OrderGrantedRefund', id: string } | null } | null };
+export type OrderGrantRefundAddMutation = { __typename: 'Mutation', orderGrantRefundCreate: { __typename: 'OrderGrantRefundCreate', errors: Array<{ __typename: 'OrderGrantRefundCreateError', field: string | null, message: string | null, code: OrderGrantRefundCreateErrorCode, lines: Array<{ __typename: 'OrderGrantRefundCreateLineError', field: string | null, message: string | null, code: OrderGrantRefundCreateLineErrorCode, lineId: string }> | null }>, grantedRefund: { __typename: 'OrderGrantedRefund', id: string, amount: { __typename: 'Money', amount: number, currency: string } } | null } | null };
 
 export type OrderGrantRefundAddWithOrderMutationVariables = Exact<{
   orderId: Scalars['ID']['input'];
