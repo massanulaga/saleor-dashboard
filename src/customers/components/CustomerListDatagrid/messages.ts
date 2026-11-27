@@ -19,8 +19,8 @@ export const columnsMessages = defineMessages({
     description: "column header",
   },
   email: {
-    id: "945a4a",
-    defaultMessage: "Customer e-mail",
+    id: "MZZbQH",
+    defaultMessage: "Email",
     description: "column header",
   },
   orders: {
