@@ -7074,7 +7074,7 @@ export type UploadErrorFieldPolicy = {
 	field?: FieldPolicy<any> | FieldReadFunction<any>,
 	message?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type UserKeySpecifier = ('accessibleChannels' | 'addresses' | 'assignedAttribute' | 'assignedAttributes' | 'avatar' | 'checkout' | 'checkoutIds' | 'checkoutTokens' | 'checkouts' | 'customerType' | 'dateJoined' | 'defaultBillingAddress' | 'defaultShippingAddress' | 'editableGroups' | 'email' | 'events' | 'externalReference' | 'firstName' | 'giftCards' | 'id' | 'isActive' | 'isConfirmed' | 'isStaff' | 'languageCode' | 'lastLogin' | 'lastName' | 'metadata' | 'metafield' | 'metafields' | 'note' | 'orders' | 'permissionGroups' | 'privateMetadata' | 'privateMetafield' | 'privateMetafields' | 'restrictedAccessToChannels' | 'storedPaymentMethods' | 'storedPaymentSources' | 'updatedAt' | 'userPermissions' | UserKeySpecifier)[];
+export type UserKeySpecifier = ('accessibleChannels' | 'addresses' | 'assignedAttribute' | 'assignedAttributes' | 'avatar' | 'checkout' | 'checkoutIds' | 'checkoutTokens' | 'checkouts' | 'customerType' | 'dateJoined' | 'defaultBillingAddress' | 'defaultShippingAddress' | 'editableGroups' | 'email' | 'events' | 'externalReference' | 'firstName' | 'giftCards' | 'id' | 'isActive' | 'isConfirmed' | 'isStaff' | 'languageCode' | 'lastLogin' | 'lastName' | 'metadata' | 'metafield' | 'metafields' | 'note' | 'orders' | 'permissionGroups' | 'privateMetadata' | 'privateMetafield' | 'privateMetafields' | 'restrictedAccessToChannels' | 'storedPaymentMethods' | 'storedPaymentSources' | 'updatedAt' | 'userPermissions' | 'wishlist' | UserKeySpecifier)[];
 export type UserFieldPolicy = {
 	accessibleChannels?: FieldPolicy<any> | FieldReadFunction<any>,
 	addresses?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -7115,7 +7115,8 @@ export type UserFieldPolicy = {
 	storedPaymentMethods?: FieldPolicy<any> | FieldReadFunction<any>,
 	storedPaymentSources?: FieldPolicy<any> | FieldReadFunction<any>,
 	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
-	userPermissions?: FieldPolicy<any> | FieldReadFunction<any>
+	userPermissions?: FieldPolicy<any> | FieldReadFunction<any>,
+	wishlist?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type UserAvatarDeleteKeySpecifier = ('accountErrors' | 'errors' | 'user' | UserAvatarDeleteKeySpecifier)[];
 export type UserAvatarDeleteFieldPolicy = {
@@ -7577,6 +7578,13 @@ export type WeightKeySpecifier = ('unit' | 'value' | WeightKeySpecifier)[];
 export type WeightFieldPolicy = {
 	unit?: FieldPolicy<any> | FieldReadFunction<any>,
 	value?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type WishlistItemKeySpecifier = ('createdAt' | 'id' | 'product' | 'variant' | WishlistItemKeySpecifier)[];
+export type WishlistItemFieldPolicy = {
+	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	product?: FieldPolicy<any> | FieldReadFunction<any>,
+	variant?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type _ServiceKeySpecifier = ('sdl' | _ServiceKeySpecifier)[];
 export type _ServiceFieldPolicy = {
@@ -11270,6 +11278,10 @@ export type StrictTypedTypePolicies = {
 	Weight?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | WeightKeySpecifier | (() => undefined | WeightKeySpecifier),
 		fields?: WeightFieldPolicy,
+	},
+	WishlistItem?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | WishlistItemKeySpecifier | (() => undefined | WishlistItemKeySpecifier),
+		fields?: WishlistItemFieldPolicy,
 	},
 	_Service?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | _ServiceKeySpecifier | (() => undefined | _ServiceKeySpecifier),

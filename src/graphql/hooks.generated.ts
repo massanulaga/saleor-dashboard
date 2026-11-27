@@ -9716,7 +9716,7 @@ export type ListCustomersQueryHookResult = ReturnType<typeof useListCustomersQue
 export type ListCustomersLazyQueryHookResult = ReturnType<typeof useListCustomersLazyQuery>;
 export type ListCustomersQueryResult = Apollo.QueryResult<Types.ListCustomersQuery, Types.ListCustomersQueryVariables>;
 export const CustomerDetailsDocument = gql`
-    query CustomerDetails($id: ID!, $PERMISSION_MANAGE_ORDERS: Boolean!, $PERMISSION_MANAGE_STAFF: Boolean!, $kpiChannelId: ID!, $includeKpiOrderCount: Boolean!) {
+    query CustomerDetails($id: ID!, $PERMISSION_MANAGE_ORDERS: Boolean!, $PERMISSION_MANAGE_STAFF: Boolean!, $PERMISSION_MANAGE_USERS: Boolean!, $kpiChannelId: ID!, $includeKpiOrderCount: Boolean!) {
   user(id: $id) {
     ...CustomerDetails
     metadata {
@@ -9724,6 +9724,19 @@ export const CustomerDetailsDocument = gql`
     }
     privateMetadata @include(if: $PERMISSION_MANAGE_STAFF) {
       ...MetadataItem
+    }
+    wishlist @include(if: $PERMISSION_MANAGE_USERS) {
+      id
+      createdAt
+      product {
+        id
+        name
+      }
+      variant {
+        id
+        name
+        sku
+      }
     }
     orders(first: 10) @include(if: $PERMISSION_MANAGE_ORDERS) {
       totalCount
@@ -9823,6 +9836,7 @@ ${MetadataItemFragmentDoc}`;
  *      id: // value for 'id'
  *      PERMISSION_MANAGE_ORDERS: // value for 'PERMISSION_MANAGE_ORDERS'
  *      PERMISSION_MANAGE_STAFF: // value for 'PERMISSION_MANAGE_STAFF'
+ *      PERMISSION_MANAGE_USERS: // value for 'PERMISSION_MANAGE_USERS'
  *      kpiChannelId: // value for 'kpiChannelId'
  *      includeKpiOrderCount: // value for 'includeKpiOrderCount'
  *   },

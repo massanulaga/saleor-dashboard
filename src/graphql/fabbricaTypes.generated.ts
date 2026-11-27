@@ -32475,6 +32475,12 @@ export type User = Node & ObjectWithAttributes & ObjectWithMetadata & {
   updatedAt: Scalars['DateTime']['output'];
   /** List of user's permissions. */
   userPermissions: Maybe<Array<UserPermission>>;
+  /**
+   * The products saved to the customer's wishlist. Visible to staff only.
+   *
+   * Requires one of the following permissions: MANAGE_USERS.
+   */
+  wishlist: Maybe<Array<WishlistItem>>;
 };
 
 
@@ -35147,6 +35153,19 @@ export type WeightUnitsEnum =
   | 'LB'
   | 'OZ'
   | 'TONNE';
+
+/** An item saved to a customer's wishlist. */
+export type WishlistItem = {
+  __typename: 'WishlistItem';
+  /** When the item was saved to the wishlist. */
+  createdAt: Scalars['DateTime']['output'];
+  /** The ID of the wishlist item. */
+  id: Scalars['ID']['output'];
+  /** The product of the saved variant. */
+  product: Product;
+  /** The saved product variant. */
+  variant: ProductVariant;
+};
 
 /** _Entity union as defined by Federation spec. */
 export type _Entity = Address | App | Category | Collection | Group | Order | PageType | Product | ProductMedia | ProductType | ProductVariant | User;
