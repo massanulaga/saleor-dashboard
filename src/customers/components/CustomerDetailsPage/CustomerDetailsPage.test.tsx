@@ -42,6 +42,9 @@ jest.mock("../CustomerAddresses/CustomerAddresses", () => ({
   __esModule: true,
   default: () => <div data-test-id="customer-addresses-mock" />,
 }));
+jest.mock("../CustomerWishlistCard/CustomerWishlistCard", () => ({
+  CustomerWishlistCard: () => <div data-test-id="customer-wishlist-mock" />,
+}));
 jest.mock("../ExternalReferenceCard/ExternalReferenceCard", () => ({
   ExternalReferenceCard: () => <div data-test-id="external-reference-mock" />,
 }));
@@ -173,6 +176,14 @@ describe("CustomerDetailsPage", () => {
       expect(getInputByTestId("customer-email")).not.toBeDisabled();
     });
 
+    it("shows the read-only wishlist card in the sidebar", () => {
+      // Arrange / Act
+      renderPage();
+
+      // Assert
+      expect(screen.getByTestId("customer-wishlist-mock")).toBeInTheDocument();
+    });
+
     it("puts contact and addresses in the sidebar, not a type card", () => {
       // Arrange / Act
       renderPage();
@@ -214,6 +225,14 @@ describe("CustomerDetailsPage", () => {
 
       // Assert
       expect(screen.queryByTestId("show-customer-metadata")).not.toBeInTheDocument();
+    });
+
+    it("hides the wishlist card, which needs MANAGE_USERS to read", () => {
+      // Arrange / Act
+      renderPage();
+
+      // Assert
+      expect(screen.queryByTestId("customer-wishlist-mock")).not.toBeInTheDocument();
     });
 
     it("still shows the cogs menu for the built-in Open in GraphiQL action", () => {

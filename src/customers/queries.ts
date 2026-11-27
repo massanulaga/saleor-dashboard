@@ -48,6 +48,7 @@ export const customerDetails = gql`
     $id: ID!
     $PERMISSION_MANAGE_ORDERS: Boolean!
     $PERMISSION_MANAGE_STAFF: Boolean!
+    $PERMISSION_MANAGE_USERS: Boolean!
     $kpiChannelId: ID!
     $includeKpiOrderCount: Boolean!
   ) {
@@ -58,6 +59,19 @@ export const customerDetails = gql`
       }
       privateMetadata @include(if: $PERMISSION_MANAGE_STAFF) {
         ...MetadataItem
+      }
+      wishlist @include(if: $PERMISSION_MANAGE_USERS) {
+        id
+        createdAt
+        product {
+          id
+          name
+        }
+        variant {
+          id
+          name
+          sku
+        }
       }
       orders(first: 10) @include(if: $PERMISSION_MANAGE_ORDERS) {
         totalCount
