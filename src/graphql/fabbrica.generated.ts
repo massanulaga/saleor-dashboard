@@ -1238,6 +1238,7 @@ import type {
   WebhookUpdate,
   WebhookUpdateInput,
   Weight,
+  WishlistItem,
   _Service,
 } from './fabbricaTypes.generated';
 
@@ -37172,6 +37173,12 @@ export type OptionalUser = {
   updatedAt?: User['updatedAt'] | undefined;
   /** List of user's permissions. */
   userPermissions?: Maybe<OptionalUserPermission[]> | undefined;
+  /**
+ * The products saved to the customer's wishlist. Visible to staff only.
+ *
+ * Requires one of the following permissions: MANAGE_USERS.
+ */
+  wishlist?: Maybe<OptionalWishlistItem[]> | undefined;
 };
 
 /**
@@ -39308,6 +39315,30 @@ export type OptionalWeight = {
  */
 export const defineWeightFactory: DefineTypeFactoryInterface<
   OptionalWeight,
+  {}
+> = defineTypeFactory;
+
+/** An item saved to a customer's wishlist. */
+export type OptionalWishlistItem = {
+  __typename?: 'WishlistItem';
+  /** When the item was saved to the wishlist. */
+  createdAt?: WishlistItem['createdAt'] | undefined;
+  /** The ID of the wishlist item. */
+  id?: WishlistItem['id'] | undefined;
+  /** The product of the saved variant. */
+  product?: OptionalProduct | undefined;
+  /** The saved product variant. */
+  variant?: OptionalProductVariant | undefined;
+};
+
+/**
+ * Define factory for {@link WishlistItem} model.
+ *
+ * @param options
+ * @returns factory {@link WishlistItemFactoryInterface}
+ */
+export const defineWishlistItemFactory: DefineTypeFactoryInterface<
+  OptionalWishlistItem,
   {}
 > = defineTypeFactory;
 

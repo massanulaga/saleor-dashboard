@@ -688,6 +688,10 @@
   "0Kz+nM": {
     "string": "Cut-off date"
   },
+  "0Lv9mn": {
+    "context": "customer detail wishlist card, date a product was saved",
+    "string": "Saved {date}"
+  },
   "0Lyinz": {
     "context": "last item of the unlinked zone list when more zones unlink than are named",
     "string": "{count, plural, one {# other shipping zone} other {# other shipping zones}}"
@@ -2450,6 +2454,10 @@
   "6eSgIe": {
     "context": "voucher detail section nav item",
     "string": "Countries"
+  },
+  "6etcxN": {
+    "context": "customer detail sidebar, section header",
+    "string": "Wishlist"
   },
   "6fAGSm": {
     "context": "Product is not visible via public API",
@@ -6529,6 +6537,10 @@
   "KPmk40": {
     "context": "charge status partial",
     "string": "Partial"
+  },
+  "KQ+C+c": {
+    "context": "customer detail wishlist card, badge",
+    "string": "Read only"
   },
   "KRqgfo": {
     "string": "User is out of your permissions scope"
@@ -14429,6 +14441,10 @@
   "l3iOju": {
     "context": "transaction event type, transaction was refunded to client",
     "string": "Refund"
+  },
+  "l3w9wf": {
+    "context": "customer detail wishlist card, empty state",
+    "string": "No saved products"
   },
   "l4o0ar": {
     "context": "voucher type order discount",
