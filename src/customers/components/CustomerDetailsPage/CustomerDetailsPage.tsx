@@ -72,6 +72,7 @@ import { CustomerAttributesCard } from "../CustomerAttributesCard/CustomerAttrib
 import CustomerInfo from "../CustomerInfo/CustomerInfo";
 import { CustomerOrders } from "../CustomerOrders/CustomerOrders";
 import { CustomerOverview } from "../CustomerOverview/CustomerOverview";
+import { CustomerWishlistCard } from "../CustomerWishlistCard/CustomerWishlistCard";
 import { ExternalReferenceCard } from "../ExternalReferenceCard/ExternalReferenceCard";
 import { CustomerDetailsPageLoading } from "./CustomerDetailsPageLoading";
 import { CustomerSaveCompositionHint } from "./CustomerSaveCompositionHint";
@@ -397,6 +398,9 @@ const CustomerDetailsPage = ({
                         disabled={disabled || isReadOnly}
                         manageAddressHref={customerAddressesUrl(customerId)}
                       />
+                      <RequirePermissions requiredPermissions={[PermissionEnum.MANAGE_USERS]}>
+                        <CustomerWishlistCard customer={customer} />
+                      </RequirePermissions>
                       <ExternalReferenceCard customer={customer} />
                       <RequirePermissions requiredPermissions={[PermissionEnum.MANAGE_GIFT_CARD]}>
                         <CustomerGiftCardsCard />
