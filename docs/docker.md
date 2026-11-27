@@ -9,7 +9,7 @@ docker build --tag saleor-dashboard .
 Run nginx from Docker and bind it to port on your machine (in this example, it is "8080"):
 
 ```shell
-docker run --publish 8080:80 --env "API_URL=<YOUR_API_URL>" saleor-dashboard
+docker run --publish 8080:8080 --env "API_URL=<YOUR_API_URL>" saleor-dashboard
 ```
 
 Enter `http://localhost:8080/` to use the dashboard.
@@ -35,7 +35,7 @@ docker exec -it \
 Of course you can also provide all the environment variables at the `docker run` command:
 
 ```shell
-docker run --publish 8080:80 \
+docker run --publish 8080:8080 \
   -e "API_URL=NEW_API_URL" \
   -e "APP_MOUNT_URI=NEW_APP_MOUNT_URI" \
   -e "EXTENSIONS_API_URL=NEW_EXTENSIONS_API_URL" \

@@ -26,6 +26,8 @@ ARG EXTENSIONS_API_URL
 ARG STATIC_URL
 ARG SKIP_SOURCEMAPS
 ARG LOCALE_CODE
+# "true" builds for a Saleor 3.24 API (the staging schema: docs/multi-schema.md); unset builds for the main schema as before.
+ARG FF_USE_STAGING_SCHEMA
 
 ENV API_URL="${API_URL:-http://localhost:8000/graphql/}"
 ENV APP_MOUNT_URI="${APP_MOUNT_URI:-/dashboard/}"
@@ -43,6 +45,8 @@ ARG COMMIT_ID
 ARG PROJECT_VERSION
 
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+# The pid file goes to /tmp, so the image also runs as a non-root user (a factory preview runs it as uid 2000).
+RUN sed -i 's,^pid .*,pid        /tmp/nginx.pid;,' /etc/nginx/nginx.conf
 COPY ./nginx/replace-env-vars.sh /docker-entrypoint.d/50-replace-env-vars.sh
 COPY --from=builder /app/build/ /app/
 
