@@ -26,6 +26,8 @@ ARG EXTENSIONS_API_URL
 ARG STATIC_URL
 ARG SKIP_SOURCEMAPS
 ARG LOCALE_CODE
+# "true" builds for Saleor's development version (the staging schema: docs/multi-schema.md); unset builds for the released version as before.
+ARG FF_USE_STAGING_SCHEMA
 
 ENV API_URL="${API_URL:-http://localhost:8000/graphql/}"
 ENV APP_MOUNT_URI="${APP_MOUNT_URI:-/dashboard/}"
